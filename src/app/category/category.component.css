@@ -1,0 +1,95 @@
+table {
+  width: 100%;
+}
+
+
+
+
+.category-table {
+  /* padding          : 15px; */
+  overflow-x       : scroll;
+  background-color : rgb(253, 254, 255);
+  border           : 6px solid rgb(43, 96, 211);
+  white-space      : nowrap;
+  /* position      : relative; */
+  display          : flex;
+  height           : 50vh;
+}
+
+.fc {
+  border : 1px solid gray !important;
+  padding: 1px !important;
+}
+
+
+.category-table .cat-div {
+  display       : inline-block;
+  vertical-align: top;
+  height        : 100%;
+  padding       : 15px;
+}
+
+.active {
+  color           : rgb(240, 241, 240);
+  background-color: rgb(108, 126, 9);
+}
+
+.cat-div li {
+  cursor         : pointer;
+  list-style-type: disc;
+  font-weight    : 400;
+  font-size      : medium;
+}
+
+.category-table div {
+  height      : inherit;
+  border-right: 4px solid rgb(43, 96, 211);
+  top         : 0;
+}
+
+.category-table p {
+  color        : red;
+  font-size    : large;
+  font-weight  : bold;
+  margin-bottom: 10px;
+  text-align   : center;
+}
+
+.cat-div ul {
+  padding-left: 5px;
+}
+
+.cat-div ul li {
+  text-align: left;
+}
+
+
+.form {
+  width     : 80%;
+  margin    : 0 auto;
+  border    : 6px solid rgb(43, 96, 211);
+  margin-top: 100px;
+  padding   : 10px;
+}
+
+.form p {
+  color        : rgb(13, 102, 10);
+  font-size    : larger;
+  font-weight  : bold;
+  margin-bottom: 10px;
+  text-align   : center;
+}
+
+mat-form-field {
+  margin-bottom: 10px;
+}
+
+
+.error-div {
+  color: red;
+}
+
+.cat-image {
+  height: 20px;
+  width : 20px;
+}

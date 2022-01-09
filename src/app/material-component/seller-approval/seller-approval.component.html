@@ -1,0 +1,409 @@
+
+ <div class="example-button-row" style="float: right; margin-bottom:10px; margin-right: 8px;">
+  
+      <div class="container-fluid">
+        <form class="d-flex">
+
+          <input class="form-control me-2" type="search" (keyup)="applyFilter($event.target.value)" placeholder="Search"
+          aria-label="Search" style="width:20rem;">
+          <!-- <button class="btn btn-outline-success" type="submit" style="background-color: #1e88e5; border:none;color:#fff; padding:0px 20px 0px 20px">Search</button> -->
+        </form>
+      </div>
+    </div>
+    <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+      <ng-container matColumnDef="vendor_id">
+        <th mat-header-cell *matHeaderCellDef class="_tab" [hidden]=true> <b>id</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows " style="float: center;" [hidden]=true>
+          {{element.vendor_id}} </td>
+      </ng-container>
+
+        <ng-container matColumnDef="fullname">
+          <th mat-header-cell *matHeaderCellDef> Name </th>
+          <ng-container *matCellDef="let element">
+          <td mat-cell *ngIf="(element && element.sellerData && element.sellerData.fullname); else noReplies"> {{element.sellerData.fullname}} </td>
+        </ng-container>
+          <ng-template #noReplies>-</ng-template>
+        </ng-container>
+
+        <!-- Name Column -->
+
+        <ng-container matColumnDef="mobileNumber">
+          <th mat-header-cell *matHeaderCellDef>  Mob. No </th>
+          <ng-container *matCellDef="let element">
+          <td mat-cell *ngIf="(element && element.sellerData && element.sellerData.mobile_number.number); else noReplies"> {{element.sellerData.mobile_number.number}} </td>
+        </ng-container>
+          <ng-template #noReplies>-</ng-template>
+        </ng-container>
+
+        <ng-container matColumnDef="sellerEmail">
+          <th mat-header-cell *matHeaderCellDef> Email </th>
+          <ng-container *matCellDef="let element">
+          <td mat-cell *ngIf="(element && element.sellerData && element.sellerData.email); else noReplies"> {{element.sellerData.email}} </td>
+        </ng-container>
+          <ng-template #noReplies>-</ng-template>
+        </ng-container>
+      
+
+        <ng-container matColumnDef="company_name">
+            <th mat-header-cell *matHeaderCellDef> Company Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.company_name}} </td>
+          </ng-container>
+          <ng-container matColumnDef="store_name">
+            <th mat-header-cell *matHeaderCellDef> Store Name</th>
+            <td mat-cell *matCellDef="let element"> {{element.store_name}} </td>
+          </ng-container>
+      
+          <ng-container matColumnDef="company_address">
+            <th mat-header-cell *matHeaderCellDef> Company Address</th>
+            <td mat-cell *matCellDef="let element">  
+            <button mat-icon-button color="primary" data-toggle="modal"
+            data-target="#MainImgModal" style="outline: none; margin: auto;" (click)="getCompanyDtl(element.vendor_id,'company')">
+                  <mat-icon class="mat-18" style="margin: auto;">reorder</mat-icon>
+            </button>
+                <div id="MainImgModal" class="modal fade bd-example-modal-lg" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header" style="border: none;">
+                       
+                      </div>
+                      <div class="modal-body">
+                        
+                        <form [formGroup]="companyAddressForm">
+
+                          <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">Country:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="country" class="form-control" >
+                            </div>
+                          </div>
+                        
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">State:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="state" class="form-control">
+                            </div>
+                          </div><div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">Pin Code:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="pincode" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">City:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="city" class="form-control">
+                            </div>
+                          </div>
+                          
+                        </form>
+                      </div>
+                        <div class="modal-footer" style="border: none;">
+                          <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                          
+                          </button>
+          
+                    </div>
+                  </div>
+                </div>
+                </div>
+              </td>
+          </ng-container>
+         
+          <ng-container matColumnDef="tax_details">
+            <th mat-header-cell *matHeaderCellDef>Tax Details</th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-icon-button color="primary" data-toggle="modal"
+              data-target="#detailModal" style="outline: none; margin: auto;" (click)="getCompanyDtl(element.vendor_id,'taxDtl')">
+                <mat-icon class="mat-18" style="margin: auto;">reorder</mat-icon>
+              </button>
+              
+                <div id="detailModal" class="modal bd-example-modal-lg fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+                        
+                        <form  [formGroup]="taxDetailsForm">
+                          <div class="form-group row">
+                            <label for="name" class="col-sm-3 col-form-label">State:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="state" class="form-control" >
+                            </div>
+                          </div>
+                        
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">Seller Name:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="seller_name" class="form-control">
+                            </div>
+                          </div><div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">GST No:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="GST_number" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">PAN Number:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="PAN_number" class="form-control">
+                            </div>
+                          </div>
+                          
+                        </form>
+                      </div>
+          
+                      <div class="modal-footer" style="border: none;">
+                        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                        
+                        </button>
+        
+                  </div>
+                    </div>
+                  </div>
+                </div>
+              </td>
+          </ng-container>
+          <ng-container matColumnDef="bank_account_details">
+            <th mat-header-cell *matHeaderCellDef>Bank A/c Details</th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-icon-button color="primary" data-toggle="modal"
+              data-target="#bankdetailModal" style="outline: none; margin: auto;" (click)="getCompanyDtl(element.vendor_id,'bankAcDtl')">
+                <mat-icon class="mat-18" style="margin: auto;">reorder</mat-icon>
+              </button>
+             
+                <div id="bankdetailModal" class="modal fade bd-example-modal-lg" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                  <div class="modal-dialog modal-lg modal-dialog-centered" role="document">
+                    <div class="modal-content">
+                      <div class="modal-body">
+
+                      <form [formGroup]="bankACDetailsForm">
+
+                          <div class="form-group row  mt-2">
+                            <label for="name" class="col-sm-3 col-form-label"> A/C Holder Name:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="account_holder_name" class="form-control" >
+                            </div>
+                          </div>
+                        
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">Account Type:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="account_type" class="form-control">
+                            </div>
+                          </div><div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">Account No:</label>
+                            <div class="col-sm-9">
+                            <input type="text"  formControlName="account_number" class="form-control">
+                            </div>
+                          </div>
+                          <div class="form-group row mt-2">
+                            <label for="name" class="col-sm-3 col-form-label">IFSC Code:</label>
+                            <div class="col-sm-9">
+                            <input type="text" formControlName="IFSC_code" class="form-control">
+                            </div>
+                          </div>
+                          
+                        </form>
+                      </div>
+          
+                      <div class="modal-footer" style="border: none;">
+                        <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                        
+                        </button>
+        
+                  </div>
+          
+                    </div>
+                  </div>
+                </div>
+              </td>
+          </ng-container>
+  
+          <ng-container matColumnDef="signature_file_name">
+            <th mat-header-cell *matHeaderCellDef>Sign. img</th>
+            <td mat-cell *matCellDef="let element;index as i;"> 
+
+              <button mat-raised-button   color="primary"  (click)="getPrivateURL(element.signature_file_name)"> Open </button>
+
+              <!-- <img [src]=" element.signature_file_name" data-toggle="modal"
+              data-target="#imgurlModal" (click)="openSignatureImg(element.signature_file_name)"  style="width:40px;height:40px"/>
+              <div id="imgurlModal" class="modal fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <img [src]="signatureImgUrl" style="width: 300px;height:300px;">
+                    
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                      <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                      
+                      </button>
+      
+                </div>
+        
+                  </div>
+                </div>
+              </div> -->
+             </td>
+          </ng-container>
+         
+          
+          <ng-container matColumnDef="GST_license_file_name">
+            <th mat-header-cell *matHeaderCellDef> Gst Licence img</th>
+            <td mat-cell *matCellDef="let element">
+
+              <button mat-raised-button   color="primary"  (click)="getPrivateURL(element.GST_license_file_name)"> Open </button>
+
+
+              <!-- <img [src]="element.GST_license_file_name" data-toggle="modal"
+              data-target="#gstlModal" (click)="openSignatureImg(element.GST_license_file_name)" style="width:40px;height:40px"/>
+              <div id="gstlModal" class="modal fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <img [src]="signatureImgUrl" style="width: 300px;height:300px;">
+                    
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                      <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                      
+                      </button>
+      
+                </div>
+        
+                  </div>
+                </div>
+              </div> -->
+            </td>
+          </ng-container>
+
+          <ng-container matColumnDef="food_license_file_name">
+            <th mat-header-cell *matHeaderCellDef> Food Licence img</th>
+            <td mat-cell *matCellDef="let element"> 
+              <button mat-raised-button   color="primary"  (click)="getPrivateURL(element.food_license_file_name)"> Open </button>
+
+              <!-- <img [src]="element.food_license_file_name" data-toggle="modal"
+              data-target="#foodlModal" (click)="openSignatureImg(element.food_license_file_name)" style="width:40px;height:40px"/>
+              <div id="foodlModal" class="modal fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <img [src]="signatureImgUrl" style="width: 300px;height:300px;">
+                    
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                      <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                      
+                      </button>
+      
+                </div>
+        
+                  </div>
+                </div>
+              </div> -->
+           </td>
+          </ng-container>
+          
+
+           <ng-container matColumnDef="shop_license_file_name">
+            <th mat-header-cell *matHeaderCellDef> Shop Licence img</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-raised-button   color="primary"  (click)="getPrivateURL(element.shop_license_file_name)"> Open </button>
+            
+
+              <!-- <img [src]="element.shop_license_file_name" data-toggle="modal"
+              data-target="#shoplModal"  (click)="openSignatureImg(element.shop_license_file_name)"  style="width:40px;height:40px"/>
+              <div id="shoplModal" class="modal fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <img [src]="signatureImgUrl" style="width: 300px;height:300px;">
+                    
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                      <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                      
+                      </button>
+      
+                </div>
+        
+                  </div>
+                </div>
+              </div> -->
+
+
+             </td>
+          </ng-container>
+
+           <ng-container matColumnDef="blank_cheque_file_name">
+            <th mat-header-cell *matHeaderCellDef> Bank check img</th>
+            <td mat-cell *matCellDef="let element">
+              <button mat-raised-button   color="primary"  (click)="getPrivateURL(element.blank_cheque_file_name)"> Open </button>
+<!-- 
+              <img [src]="element.blank_cheque_file_name" data-toggle="modal"
+              data-target="#linkModal" (click)="openSignatureImg(element.shop_license_file_name)" style="width:40px;height:40px"/>
+
+              <div id="linkModal" class="modal fade" role='dialog' data-backdrop="false" aria-hidden="false" tabindex="-1">
+
+                <div class="modal-dialog  modal-dialog-centered" role="document">
+                  <div class="modal-content">
+                    <div class="modal-body">
+                      <img [src]="signatureImgUrl" style="width: 300px;height:300px;">
+                    
+                    </div>
+                    <div class="modal-footer" style="border: none;">
+                      <button mat-raised-button class="close" data-dismiss="modal" aria-label="Close" color="warn" style="outline: none;">cancel
+                      
+                      </button>
+      
+                </div>
+        
+                  </div>
+                </div>
+              </div> -->
+
+
+
+               </td>
+          </ng-container>
+
+          <ng-container matColumnDef="status">
+            <th mat-header-cell *matHeaderCellDef> status</th>
+            <td mat-cell *matCellDef="let element"> {{element.account_status}} </td>
+          </ng-container>
+
+        <ng-container matColumnDef="action">
+            <th *matHeaderCellDef class="intella-header-cell _tab">Action</th>
+            <td mat-cell *matCellDef="let element" class="intella-cell king">
+              <mat-select  (selectionChange)="routeAction($event,element.vendor_id)" placeholder="Status"
+                style="color:blanchedalmond; font-weight: bold; background-color: #ff8c00; padding: 5px 0px; border-radius: 5px; " *ngIf="['Pending'].includes(element.account_status)" >
+                <!-- <mat-option value="Pending">Pending</mat-option> -->
+                <mat-option value="Approved">Approved</mat-option>
+                <mat-option value="Rejected">Rejected</mat-option>
+              </mat-select>
+              <p *ngIf="!['Pending'].includes(element.account_status)">NA</p>
+            </td>
+          </ng-container>
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+      </table>
+      <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+      </mat-paginator>
+
+      <ng-template #popup>
+        <h1 mat-dialog-title>Enter reason for rejecting Account.</h1>
+        <div mat-dialog-content >
+          <textarea matInput name="reason" id="reason" cols="31" rows="10" [(ngModel)]="reason" ></textarea>
+        </div>
+        <div mat-dialog-actions>
+          <button mat-raised-button color="primary" (click)="rejectDocument()"  [disabled]="disabled2">Submit</button>
+          <button mat-raised-button color="warn" mat-dialog-close>Close</button>
+        </div>
+      </ng-template>

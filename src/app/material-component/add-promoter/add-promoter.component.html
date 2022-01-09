@@ -1,0 +1,57 @@
+
+<div class="containe-fluid mt-3 mb-3" style="width:600px; height:auto;" >
+    <div class="row">
+        <div class="col-12" style="margin: auto;">
+<form [formGroup]="promoCodeGenForm" (ngSubmit)="onSubmit()" class="was-validated mt-3 ">
+  <div class="mb-3">
+      <div class="input-group ">
+        <div class="col-4">
+          <label  style="color: black;font-weight: bold;">Select Promoters:</label>
+      </div>
+      <div class="col-8">
+        <select class="custom-select" name="promoterName" formControlName="promoterName" required style="float: right; border:2px solid green; ">
+          <option value="">Select Promoter</option>
+          <option *ngFor="let promoter of promoterArray; let i = index" [value]="promoter._id+'@@'+promoter.Name">
+            {{promoter.Name}}
+          </option>
+        </select>
+        </div>
+      </div>
+      <div class="input-group is-invalid mt-3">
+          <div class="col-4">
+          <label style="color: black;font-weight: bold;">Select Sellers:</label>
+      </div>
+      <div class="col-8">
+        
+        <select class="custom-select" name="sellerName" formControlName="sellerName" required style="float: right; border:2px solid green;">
+          <option value="">Select Seller</option>
+
+          <option *ngFor="let seller of sellerArray; let i = index" [value]="seller.vendor_id+'@@'+seller.sellerData.fullname">
+            {{seller.sellerData.fullname}}
+          </option>
+        </select>
+        </div>
+      </div>
+      <div class="input-group is-invalid mt-3">
+        <div class="col-4">
+          <label style="color: black;font-weight: bold;">Select Brand:</label>
+      </div>
+      <div class="col-8">
+        <select class="custom-select"  name="brandName" formControlName="brandName" id="validatedInputGroupSelect" required style="float: right; border:2px solid green;">
+          <option value="">Select Brand</option>
+
+          <option *ngFor="let brand of brandArray; let i = index" [value]="brand.Percentage+'@@'+brand.brandName">
+            {{brand.brandName}}
+          </option>
+        
+        </select>
+      </div>
+    </div>
+  </div>
+  
+  <button class="btn btn-primary btn-block" type="submit" style="margin: auto;">Submit </button>
+  
+</form>
+</div>
+</div>
+</div>

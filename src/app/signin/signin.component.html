@@ -1,0 +1,36 @@
+<section class="sign-section sgs">
+
+
+  <div class="main-wrapper" fxLayout="row">
+
+    <mat-card class="card">
+
+      <mat-toolbar>
+        <span>Sign in</span>
+      </mat-toolbar>
+      <form [formGroup]="loginForm" (ngSubmit)="onSubmit()" class="example-form">
+
+        <mat-card-content>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Email Id" formControlName="email" required>
+            <mat-error *ngIf="hasError('email','required')">This field is required</mat-error>
+            <mat-error *ngIf="hasError('email','pattern')">Please enter a valid email</mat-error>
+          </mat-form-field>
+          <mat-form-field class="example-full-width">
+            <input matInput placeholder="Password" formControlName="password" required>
+            <mat-error *ngIf="hasError('password','required')">This field is required</mat-error>
+            <mat-error *ngIf="hasError('password','minlength')">Minimum length is 6</mat-error>
+            <mat-error *ngIf="hasError('password','maxlength')">Maximum length is 50</mat-error>
+          </mat-form-field>
+          Forgotten password?
+        </mat-card-content>
+
+        <button mat-stroked-button type="submit" class="btn-block">Sign-in</button>
+
+      </form>
+      <hr>
+      <!-- <a mat-button routerLink="/signup">New to admin? Create an account</a> -->
+    </mat-card>
+
+  </div>
+</section>

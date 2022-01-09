@@ -1,0 +1,45 @@
+<mat-toolbar color="primary" class="topbar telative">
+
+
+	<div class="navbar-header">
+
+	<a class="navbar-brand" href="/promoter-dashboard">
+		<!-- Logo icon --><b>
+			<!--You can put here icon as well // <i class="wi wi-sunset"></i> //-->
+			<!-- Dark Logo icon -->
+		   
+			<!-- Light Logo icon -->
+			<img src="assets/images/FDays365 (1).png" alt="homepage" style="width:60px;  background-color:dark">
+		</b>
+	   
+		 
+		 <!-- Light Logo text -->    
+		 <div class="logo"><a href="/promoter-dashboard" style="color:#ffb14c;; font-size:30px; font-weight:500;">Days 365</a></div>
+		</a>
+	</div>
+
+	
+	<span id="menu-button" class="app-icon-button" (click)="toggleNavbar()" style="border: none;">
+		<mat-icon style="color: #fff;">reorder</mat-icon>
+		</span>
+	<span fxFlex></span>
+	<button [matMenuTriggerFor]="profile" mat-icon-button class="m-r-7"> <img src="assets/images/users/1.jpg" alt="user"
+        class="profile-pic" > </button>
+
+		
+<mat-menu #profile="matMenu" class="mymegamenu" >
+    <button mat-menu-item style="outline: none;">
+        <mat-icon>settings</mat-icon> Settings
+    </button>
+    <button mat-menu-item  style="outline: none;">
+        <mat-icon>account_box</mat-icon> Profile
+    </button>
+    <button mat-menu-item  style="outline: none;"> 
+        <mat-icon>notifications_off</mat-icon> Disable notifications
+    </button>
+	<button mat-menu-item (click)="promoterSignOut()">
+		<mat-icon>exit_to_app</mat-icon> Sign Out
+	</button>
+</mat-menu>
+
+</mat-toolbar>

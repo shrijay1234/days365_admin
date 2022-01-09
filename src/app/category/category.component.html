@@ -1,0 +1,116 @@
+<!-- <div class="example-button-row" style="float: right; margin-bottom:10px; margin-right:10px;">
+
+  <button mat-raised-button color="primary" [routerLink]="'/add-category'">Add Category</button>
+
+
+</div>
+<div class="example-button-row" style="float: right; margin-bottom:10px; margin-right:10px;">
+  <nav class="navbar navbar-light bg-light" style="width:40rem;">
+    <div class="container-fluid">
+      <form class="d-flex">
+        <span style="padding-top: 8px;"><b>Search&nbsp;Here:</b></span>&nbsp;&nbsp;
+        <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
+        <button class="btn btn-outline-success" type="submit"
+          style="background-color: #1e88e5; border:none;color:#fff; padding:0px 20px 0px 20px">Search</button>
+      </form>
+    </div>
+  </nav>
+
+</div>
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+  <ng-container matColumnDef="id">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 19px;"> <b>Category Id</b></th>
+    <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+  </ng-container>
+
+  <ng-container matColumnDef="name">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 19px;"><b> Category Name </b></th>
+    <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+  </ng-container>
+
+
+  <ng-container matColumnDef="image">
+    <th mat-header-cell *matHeaderCellDef style="font-size: 19px;"><b>Category Image </b></th>
+    <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+  </ng-container>
+
+
+
+
+  <ng-container matColumnDef="columndelete">
+    <th style="width:15%;" mat-header-cell *matHeaderCellDef style="font-size: 19px;"><b> Delete</b></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="delete(element)">delete</mat-icon>
+    </td>
+  </ng-container>
+
+  <ng-container matColumnDef="columnedit">
+    <th style="width:15%;" mat-header-cell *matHeaderCellDef style="font-size: 19px;"><b> Edit</b></th>
+    <td mat-cell *matCellDef="let element">
+      <mat-icon (click)="edit(element)" [routerLink]="'/edit'">edit</mat-icon>
+    </td>
+  </ng-container>
+
+  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+</table>
+
+<mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+</mat-paginator>
+ -->
+
+
+
+
+
+<div class="category-table">
+  <div *ngFor="let item of categories; index as i;" class="cat-div text-center">
+    <p>{{item.parent.name}}</p>
+    <ul>
+      <li *ngFor="let category of item.categories; index as j;" (click)="selectCategory(i, j,category)"
+        [ngClass]="{'active' : isActive.i == i && isActive.j == j}">
+        <img [src]="category.image_URL" alt="cat_image" *ngIf="category.image_URL" class="cat-image">
+        {{category.category_name}}
+      </li>
+    </ul>
+    <br>
+    <button mat-raised-button color="accent" class="add-button" (click)="addNewCategory(item)">Add More</button>
+  </div>
+</div>
+
+
+<div class="form text-center" *ngIf="selectedParent.id">
+  <p>Add a catagory</p>
+  <h5>Parent Category: {{selectedParent.name}}</h5>
+  <form [formGroup]="categoryForm" (ngSubmit)="addCategory()">
+    <mat-form-field>
+      <input matInput formControlName="categoryName" placeholder="Category name" required>
+      <mat-error *ngIf="hasError('categoryName','required')">This field is required</mat-error>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Add Subcategory</mat-label>
+      <mat-select formControlName="isRestricted" required>
+        <mat-option [value]='true'> Yes</mat-option>
+        <mat-option [value]='false'> No</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <mat-form-field>
+      <mat-label>Last Category</mat-label>
+      <mat-select formControlName="isLeaf" required>
+        <mat-option [value]='true'> Yes</mat-option>
+        <mat-option [value]='false'> No</mat-option>
+      </mat-select>
+    </mat-form-field>
+    <div>
+      <input type="file" (change)="fileChange($event)" id="file" formControlName="myFile" accept="image/png,image/jpeg,application/pdf" required>
+      <mat-error *ngIf="hasError('myFile','required')">This field is required</mat-error>
+    </div>
+    <br>
+    <div *ngIf="sizeExceed" class="form-group" class="error-div">
+      {{sizeExceed}}
+    </div>
+    <br>
+    <button mat-raised-button color="accent" type="submit" [disabled]='spinner'>Submit</button>
+  </form>
+</div>

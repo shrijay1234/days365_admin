@@ -1,0 +1,38 @@
+.viewprofie {
+    display: flex;
+}
+img.profile-pic {
+    width: 55%;
+    margin: 46px;
+}
+.content {
+    width: 100%;
+}
+.card-title.ng-star-inserted {
+    color: black;
+    font-size: 22px;
+    font-family: auto;
+    padding-left: 14px;
+}
+.edit_button{
+    margin-left: 80%;
+    cursor: pointer;
+    /* color: blue; */
+}
+.col-md-3, .dob, .mobile {
+ color:  #989c9e;
+ font-size: 15px;
+}
+.genderValue, .dobValue, .mobileNumberValue{
+    color: Dodgerblue;
+}
+.gender{
+    color:  #989c9e;font-size: 15px;
+}
+.addressvalue{color: Dodgerblue; width: 50%;}
+.address{ color:  #989c9e;font-size: 15px; width: 50%;}
+.Country{ color:  #989c9e;font-size: 15px; width: 50%;}
+.ind{ color: Dodgerblue; width: 50%;}
+.fa-edit{
+    float:right;color:#00a1de;margin:5% 4%;font-size:28px;
+}

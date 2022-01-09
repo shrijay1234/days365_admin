@@ -1,0 +1,89 @@
+body{ box-sizing: border-box;
+
+
+}
+.form{
+    position:relative;
+width:44rem;
+margin-bottom: 2rem;
+
+
+}
+
+.for-input{
+    position: absolute;
+    top:0;
+    border:2px solid  black;
+    width:60%;
+    height:100%;
+    border-radius: 4px;
+    font-size: 20px;
+    padding: 1.25rem;
+    background:none;
+    outline: none;
+  
+}
+.for-label{
+    position:relative;
+    left:1rem;
+    top:0.6rem;
+    padding: 0 0.5rem;
+    color: #1e88e5;
+    cursor: text;
+    transition: top 200ms ease-in, 
+    left 200ms ease-in,
+    font-size 200ms ease-in;
+background-color: #fff;
+}
+
+.for-input:focus ~ .for-label,
+.for-input:not(:placeholder-shown).for-input:not(:focus)~.for-label{
+
+    top:-0.8rem;
+    font-size: 0.8rem;
+    left:0.8rem;
+}
+span{
+    font-size: 16px;
+}
+.text-rrr{
+    position:relative;
+    top:0;
+    border:2px solid black;
+    width:49.80%;
+    height:3rem;
+
+    border-radius: 4px;
+    font-size: 16px;
+
+    background:none;
+    outline: none;
+  
+
+}
+.text-yyy{
+    
+    top:0;
+    border:2px solid black;
+    width:49.80%;
+    height:3rem;
+    border-radius: 4px;
+    font-size: 16px;
+    background:none;
+    outline: none;
+  
+
+}
+.text-mnm{
+    
+    top:0;
+    border:2px solid black;
+    width:55%;
+    height:3rem;
+    border-radius: 4px;
+    font-size: 16px;
+    background:none;
+    outline: none;
+  
+
+}

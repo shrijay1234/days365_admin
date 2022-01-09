@@ -1,0 +1,29 @@
+
+<form>
+    <div style="margin-left:6rem">
+    <span style="color:black; margin-top: 1rem;"><b>Sub-Category Name:</b></span>&nbsp;&nbsp;&nbsp;
+    <mat-form-field  style="width:54.4%; border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px; margin-top: 1rem;"> 
+      <mat-label >Select Product Sub-Category</mat-label>
+      <mat-select>
+        
+        <mat-option value="one">First option</mat-option>
+        <mat-option value="two">Second option</mat-option>
+      </mat-select>  
+      
+    </mat-form-field>
+    </div>
+    <div class="rr" style="margin-bottom: 30px;padding-left: 7rem;">
+        <label style="color:black"><b>Sub-Categor Name:</b></label>&nbsp;&nbsp;&nbsp;
+         <input type="text" class="text-mnm" placeholder="Category *">
+       </div>
+       <div class="form-group" style="margin-top: 5px; padding-left: 6.4rem;">
+        <label for="exampleFormControlFile1" style="color:black"><b>Sub-Category Image:</b></label> &nbsp;&nbsp;
+        <input type="file" class="form-control-file " id="exampleFormControlFile1">
+      </div>
+    <div class="example-button-row" style="margin-bottom: 1rem; margin-left: 22rem; margin-top: 20px;">
+     
+        <button mat-raised-button color="primary" [routerLink]="'/'">Submit</button>
+      </div>
+     
+
+</form>

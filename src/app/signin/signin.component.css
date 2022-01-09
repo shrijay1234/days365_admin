@@ -1,0 +1,35 @@
+.my-form{
+    min-width: 150px;
+    max-width: 500px;
+    width: 100%;
+  }
+  
+  .full-width {
+    width: 100%;
+  }
+  .sgs{
+    padding: 5rem;
+  }
+  
+  .mat-radio-label {
+    padding-left: 3.5px;
+  }
+  .btn-block{
+    background-color:  #00a1de;
+  }
+  /* .sign-section{
+    background-image: url(assets/images/background/sign-inbg.jpg) !important;
+  } */
+  .mat-card-actions {
+    text-align: center;
+  }
+  
+  .card{
+    margin: 2em auto;
+    box-shadow: 2px 2px 2px 3px #888888 !important;
+  }
+  
+  .alert-error {
+    background-color: #f04546;
+    font-family: sans-serif;
+  }

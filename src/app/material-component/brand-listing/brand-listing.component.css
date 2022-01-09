@@ -1,0 +1,31 @@
+table{
+    width: 100%;
+    
+
+  }
+  
+  th,td {
+    width: 12.5%;
+    table-layout: fixed;
+    justify-content: center;
+  }
+  ._tab{
+    font-size: 14px;
+    text-align: center; 
+    background: #1e88e5;
+    color:#ffff
+}
+
+.king{
+  text-align: center;
+  color:grey
+}
+::placeholder{
+  color:#fff
+  }
+  td{
+  
+  word-break: break-all;
+
+  }
+  

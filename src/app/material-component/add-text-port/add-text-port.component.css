@@ -1,0 +1,17 @@
+table {
+    width: 80%;
+    float: right;
+  }
+input{
+    float: right;
+    border:2 px solid grey;
+    outline: none;
+} td{
+    height: 20px;
+}
+
+
+input:focus{
+    border-color: dodgerblue;
+    box-shadow:0 0 8px 0 dodgerblue;
+}

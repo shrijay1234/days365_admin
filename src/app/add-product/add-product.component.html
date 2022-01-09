@@ -1,0 +1,131 @@
+
+
+      
+<span style="color:black; margin-top: 1rem;"><b>Select Product Category:&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+      <mat-form-field  style="width:50%; border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px; margin-top: 1rem;"> 
+        <mat-label >Select Product Category</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>  
+      </mat-form-field>
+      
+      <div>&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color:black"><b>Select Sub Category:&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+      <mat-form-field  style="width:50%;border:2px solid black; height:3rem; margin-bottom: 30px;border-radius: 4px;">
+        <mat-label style="border: none;">Select Product SubCategory</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+      </div>
+      &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <span style="color:black" ><b>Select Brand:&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+      <mat-form-field  style="width:50%; border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px;">
+        <mat-label>Select Brand</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+      <div class="yy" style="margin-bottom:5px; ">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="color:black"><b>Product Name:</b></label>&nbsp;&nbsp;
+        <input type="text" class="text-yyy" placeholder="Enter Product Name*">
+      </div><br>
+      <div class="rr" style="margin-bottom: 30px;">
+        &nbsp; &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<label style="color:black"><b>Product Type:</b></label>&nbsp;&nbsp;
+        <input type="name" class="text-rrr" placeholder="Enter Product type*">
+      </div>
+      
+
+      <span style="color:black; padding-left:6rem;" ><b>Select Color:&nbsp;&nbsp;&nbsp;&nbsp;</b></span>
+      <mat-form-field  style="width:50%; border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px;">
+        <mat-label>Select Color</mat-label>
+        <mat-select>
+          <mat-option value="one">Black</mat-option>
+          <mat-option value="two">Orange</mat-option>
+        </mat-select>
+      </mat-form-field>
+
+
+
+      <div class="example-button-row" style="margin-bottom: 1rem; padding-left: 4.8rem; ">
+        &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;<span style="color:black"><b>Add More:</b></span>&nbsp;&nbsp;
+        <button mat-raised-button color="primary" [routerLink]="'/add-product'">Update</button>
+      </div>
+      <div class="rr" style="margin-bottom: 30px;">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+      <label style="color:black"><b>Product Description:</b></label>&nbsp;&nbsp;
+        <input type="name" class="text-rrr" placeholder="Enter Description*">
+      </div>
+      <div class="r" style="margin-bottom: 30px; padding-left: 5.6rem;">
+       <label style="color:black"><b>Product code:</b></label>&nbsp;&nbsp;
+        <input type="number" class="text-mnm" placeholder="Enter Code*">
+      </div>
+      <div class="rr" style="margin-bottom: 30px;padding-left: 6rem;">
+        <label style="color:black"><b>About Brand:</b></label>&nbsp;&nbsp;
+        <input type="text" class="text-mnm"  placeholder="Enter About Brand*">
+      </div>
+      <div class="rr" style="margin-bottom: 30px;padding-left: 5rem;">
+        <label style="color:black"><b>Product Type:</b></label>&nbsp;&nbsp;&nbsp;
+        <input type="name" class="text-mnm" placeholder="Enter Product type*">
+      </div>
+      <div class="rr" style="margin-bottom: 30px;padding-left: 6.4rem;">
+       <label style="color:black"><b>How To Use:</b></label>&nbsp;&nbsp;&nbsp;
+        <input type="text" class="text-mnm" placeholder="How To Use*">
+      </div>
+      <div class="rr" style="margin-bottom: 30px;padding-left: 6rem; ">
+      <label style="color:black;width:54.14%"><b>Ingreidient:</b></label>&nbsp;&nbsp;&nbsp;
+        <input type="text" class="text-mnm" placeholder="Enter Product type*">
+      </div>
+     <div class="form"style="padding-left: 6rem; width:84%">
+     <span style="color:black"><b>Offer Value:</b></span>&nbsp;&nbsp;&nbsp;
+       <input type="number" id="number" class="for-input" autocomplete="off" placeholder="">
+       <label for="number" class="for-label">Enter Offer Value*</label>
+
+     </div>
+     
+    <div class="form"style="padding-left: 3.4rem; width:84%; margin-top:22px">
+   <span style="color:black"><b>Offer Description:</b></span>&nbsp;&nbsp;
+      <input type="number" id="number" class="for-input" autocomplete="off" placeholder="">
+      <label for="number" class="for-label">Enter Offer Description*</label>
+
+    </div>
+
+    <div style="padding-left: 1.8rem;">
+<span style="color:black">
+ <b> Manufacturing Data:</b>
+</span>&nbsp;&nbsp;
+    <mat-form-field  style="width:24.5%;border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px;">
+      <mat-label>dd/mm/yy</mat-label>
+      <input matInput [matDatepicker]="picker">
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>  &nbsp;&nbsp;&nbsp;
+    <mat-form-field style="width:24.5%; border:2px solid black; height:3rem; margin-bottom: 30px; border-radius: 4px;">
+      <mat-label> dd/mm/yy</mat-label>
+      <input matInput [matDatepicker]="picker">
+
+      <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+      <mat-datepicker #picker></mat-datepicker>
+    </mat-form-field>
+    </div>
+    <form>
+      <div class="form-group" style="margin-top: 5px; padding-left: 5rem;">
+        <label for="exampleFormControlFile1" style="color:black"><b>Upload Image:</b></label> &nbsp;&nbsp;
+        <input type="file" class="form-control-file " id="exampleFormControlFile1">
+      </div>
+    </form>
+  
+      
+    <div class="example-button-row" style="margin-bottom: 1rem; margin-left: 20rem; margin-top: 8px;;">
+     
+      <button mat-raised-button color="primary" [routerLink]="'/'">Submit</button>
+    </div>
+   
+    
+    
+  

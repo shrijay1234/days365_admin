@@ -1,0 +1,12 @@
+
+
+	<app-toolbar (navbarEventEmitter)="sidenav.toggle()"></app-toolbar>
+    <mat-sidenav-container>
+	<mat-sidenav #sidenav mode="side">
+		<app-promoter-sidebar></app-promoter-sidebar>
+	</mat-sidenav>
+	<div class="mt-5 text-center" style="color:grey">
+    <h2>Hello {{promoterName}} </h2>
+	<h2>Welcom To Promoter Dashboard</h2>
+	</div>
+</mat-sidenav-container>

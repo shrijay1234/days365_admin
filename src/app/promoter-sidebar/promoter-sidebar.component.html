@@ -1,0 +1,31 @@
+
+<div class="user-profile" style="background: url(assets/images/background/user-info.jpg) no-repeat;">
+    <!-- User profile image -->
+   
+    <!-- User profile text-->
+    <!-- ============================================================== -->
+    <!-- Profile - style you can find in header.scss -->
+    <!-- ============================================================== -->
+    <div class="profile-text"><a  class=""> Promoters <i class="ti-angle-down font-12 m-l-5"></i></a></div>
+    
+    
+</div>
+
+<ul class="nav flex-column sidenav mt-2" >
+	<li class="nav-item">
+		<a class="nav-link"  [routerLink]="'/promoter-dashboard'" routerLinkActive="active" [routerLinkActiveOptions]="{ exact: true }">
+		<mat-icon style="vertical-align: middle;">av_timer</mat-icon>	 Promoter-Dashboard
+		</a>
+	</li>
+	<li class="nav-item">
+		<a class="nav-link"  [routerLink]="'/promoter-list'" routerLinkActive="active">
+			<mat-icon style="vertical-align: middle;">list</mat-icon> Promoter-List
+		</a>
+	</li>
+
+	<li class="nav-item">
+		<a class="nav-link"  [routerLink]="'/promocode-list'" routerLinkActive="active"><mat-icon style="vertical-align: middle;">code</mat-icon>
+			 Promocode-List
+		</a>
+	</li>
+</ul>

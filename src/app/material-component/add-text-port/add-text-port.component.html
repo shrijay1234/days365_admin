@@ -1,0 +1,47 @@
+<div class="container">
+
+<div class="row">
+    <div class="col-12 col-sm-4">
+<form>
+    <div>
+    <label> Category: </label>
+<input [formControl]="textControl" 
+  [(ngModel)]="current"
+ 
+  type="text" />
+  </div>
+  <div>
+<label>Text-port: </label>
+  <input [formControl]="textControl" 
+  [(ngModel)]="category"
+
+  type="text" />
+  </div>
+</form>
+</div>
+<div class="col-12 col-sm-8">
+
+<table class="table" style="z-index: 2;">
+    <thead style="background: #1e88e5;
+    color:#fff;
+    vertical-align: middle;">
+      <tr>
+        <th scope="col">Category</th>
+        <th scope="col">Text Port</th>
+
+      </tr>
+    </thead>
+    <tbody style="background-color: #fff;">
+      <tr>
+        
+        <td >{{current}}</td>
+        <td>{{category}}</td>
+      </tr>
+      <tr>
+       
+    </tbody>
+    <div *ngFor="let h of history$ | async" ></div>
+  </table>
+  </div>
+  </div>
+  </div>

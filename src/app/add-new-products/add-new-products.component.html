@@ -1,0 +1,79 @@
+<table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+    <!-- <ng-container matColumnDef="num">
+      <th mat-header-cell *matHeaderCellDef class="_tab"> <b>S No.</b></th>
+      <td mat-cell *matCellDef="let element" class="text-center"> {{element.num}} </td>
+    </ng-container> -->
+
+    <ng-container matColumnDef="_id">
+      <th mat-header-cell *matHeaderCellDef class="_tab"  [hidden]=true> <b>id</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows" style="float: center;" [hidden]=true> {{element._id}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="title">
+        <th mat-header-cell *matHeaderCellDef class="_tab"> <b>Title</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows" style="float: center;"> {{element.title}} </td>
+      </ng-container>
+      
+    
+    <ng-container matColumnDef="brandName">
+      <th mat-header-cell *matHeaderCellDef class="_tab"> <b>Brand Name</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.brandName}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="manuFacturer">
+        <th mat-header-cell *matHeaderCellDef class="_tab"> <b>ManuFacturer</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.manuFacturer}} </td>
+      </ng-container>
+    
+    <ng-container matColumnDef="handlingPeriod">
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Handling period</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.handlingPeriod}} </td>
+    </ng-container>
+    <ng-container matColumnDef="salePrice">
+        <th mat-header-cell *matHeaderCellDef class="_tab"><b>Sales Price</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.salePrice}} </td>
+      </ng-container>
+      <ng-container matColumnDef="maximumRetailPrice">
+        <th mat-header-cell *matHeaderCellDef class="_tab"><b>MRP</b></th>
+        <td mat-cell *matCellDef="let element" class="_rows"> {{element.maximumRetailPrice}} </td>
+      </ng-container>
+      
+  
+    <ng-container matColumnDef="countryOfOrigin" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b> Country Of Origin</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.countryOfOrigin}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="condition" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Condition </b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.condition}} </td>
+    </ng-container>
+  
+    <ng-container matColumnDef="shippingCharges" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Shipping Charges </b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.shippingCharges}} </td>
+    </ng-container>
+
+    <ng-container matColumnDef="shippingChargesAmt" >
+      <th mat-header-cell *matHeaderCellDef class="_tab"><b>Shipping Charges Amt</b></th>
+      <td mat-cell *matCellDef="let element" class="_rows"> {{element.shippingChargesAmt}} </td>
+    </ng-container>
+    
+    <ng-container matColumnDef="status">
+      <mat-header-cell *matHeaderCellDef class="intella-header-cell" style="padding-top: 25px;"><b>Status</b></mat-header-cell>
+      <mat-cell *matCellDef="let element" class="intella-cell">
+      <mat-select style="width:150%; padding-top: 15px;" placeholder="Pending" [(value)]="selectedStatus" (selectionChange)="onOptionsSelected($event)">
+        <mat-option [value]="element._id">Pending</mat-option>
+        <mat-option [value]="element._id">Processing</mat-option>
+        <mat-option [value]="element._id">Rejected</mat-option>
+      </mat-select>
+      </mat-cell>
+    </ng-container>
+  
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+  </table>
+  
+  <mat-paginator [length]="100" [pageSize]="10" [pageSizeOptions]="[5, 10, 25, 100]">
+  </mat-paginator>

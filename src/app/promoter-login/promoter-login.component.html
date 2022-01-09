@@ -1,0 +1,31 @@
+
+<section class="sign-section sgs">
+  <div fxLayoutAlign="center center "
+fxFlexFill class="main-div">
+<mat-card fxFlex="42" >
+  <mat-toolbar color="primary" fxLayoutAlign="center center">Promoter Login</mat-toolbar>
+  
+    <form [formGroup]="promoterLoginForm" (ngSubmit)="onSubmit()" class="form mt-3">
+  
+      <mat-form-field floatLabel="never" class="form-element" >
+        <input type="text" matInput placeholder="Email*" formControlName="Email">
+        <mat-error *ngIf="promoterLoginForm.controls['Email'].invalid">
+          {{getError('user')}}
+        </mat-error>
+      </mat-form-field>
+  
+      <mat-form-field floatLabel="never" class="form-element">
+        <input type="password" matInput placeholder="Password*" formControlName="Password">
+        <mat-error *ngIf="!promoterLoginForm.controls['Password'].valid">
+          {{getError('pass')}}
+        </mat-error>
+      </mat-form-field>
+  
+      <div class="form-element">
+        <button mat-raised-button color="primary" type="submit" class="button btn-block"  style="outline: none;">Login</button>
+      </div>
+  
+    </form>
+    </mat-card>
+  </div>
+</section>

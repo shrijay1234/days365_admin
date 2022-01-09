@@ -1,0 +1,30 @@
+
+<div class="container" style="width:700px;height:auto">
+	<form  [formGroup]="addBankDetailsForm" (ngSubmit)="onSubmit()">
+		<div class="form-group row">
+		  <label for="name" class="col-sm-3 col-form-label">Bank Name:</label>
+		  <div class="col-sm-9">
+			<input type="text" class="form-control" formControlName="BankName" id="" placeholder="" style="border:2px solid #1e88e5">
+		  </div>
+		</div>
+		<div class="form-group row mt-3" >
+			<label  class="col-sm-3 col-form-label">Account No.</label>
+			<div class="col-sm-9">
+			  <input type="" class="form-control" formControlName="AccountNo" id="" placeholder=""  style="border:2px solid #1e88e5">
+			</div>
+		  </div>
+		  
+		  
+		  
+		  <div class="form-group row mt-3">
+			<label  class="col-sm-3 col-form-label">Ifsc Code:</label>
+			<div class="col-sm-9 ">
+			  <input type="" class="form-control" formControlName="IFSCCode" id="" placeholder=""  style="border:2px solid #1e88e5">
+			</div>
+		  </div>
+		  <div class="form-group">
+			<button class="btn btn-primary btn-block mt-4">Submit</button>
+		</div>
+			
+	  </form>
+	  </div>

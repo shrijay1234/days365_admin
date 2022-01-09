@@ -1,0 +1,140 @@
+<div class="rr" style="margin-bottom: 30px;padding-left: 2rem;">
+
+    <input type="number" class="text-mnm" placeholder="Enter Consignment No.(123456,123456)">
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 1rem;">Submit</button>
+    <input type="number" class="text-mnm" style="margin-left: 10rem;" placeholder="Enter IMPS">
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 1rem;">Submit</button>
+</div>
+
+<div class="rr" style="padding-left: 2rem;">
+  
+  
+  
+  <mat-form-field appearance="legacy" style="border:2px solid black;height: 3rem; width:18%; border-radius: 4px;">
+    <mat-label  >First Date</mat-label>
+    <input matInput placeholder="dd/mm/yy" type="" > 
+  </mat-form-field>
+   
+  <mat-form-field appearance="legacy" style="border:2px solid black;height: 3rem; width:18%;margin-left:2rem; border-radius: 4px;">
+    <mat-label  >Last Date</mat-label>
+    <input matInput placeholder="dd/mm/yy" type="" > 
+  </mat-form-field>
+  
+      <mat-form-field  style="width:18%; border:2px solid black; height:3rem; margin-left:2rem; border-radius: 4px;"> 
+        <mat-label >Select Product Category</mat-label>
+        <mat-select>
+          <mat-option value="one">First option</mat-option>
+          <mat-option value="two">Second option</mat-option>
+        </mat-select>  
+      </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 1rem;">Submit</button>
+</div>
+<div class="rr" style="margin-bottom: 30px;padding-left: 2rem;">
+    
+    <mat-form-field  style="width:24.5%;border:2px solid black; height:3rem;  margin-top:2rem; border-radius: 4px;">
+        <mat-label style="margin: 20px;">dd/mm/yy</mat-label>
+        <input matInput [matDatepicker]="picker">
+        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+        <mat-datepicker #picker></mat-datepicker>
+      </mat-form-field>
+      &nbsp;&nbsp;&nbsp;
+      <mat-form-field style="width:24.5%; border:2px solid black; height:3rem; border-radius: 4px;">
+        <mat-label  style="margin: 20px;"> dd/mm/yy</mat-label>
+        <input matInput [matDatepicker]="date">
+  
+        <mat-datepicker-toggle matSuffix [for]="date"></mat-datepicker-toggle>
+        <mat-datepicker #date></mat-datepicker>
+      </mat-form-field>
+    <button mat-raised-button color="primary" type="submit" style="margin-left: 1rem;">Export</button>
+
+</div>
+<div class="example-button-row" style="float: right; margin-bottom:10px; margin-right:10px;">
+    <nav class="navbar navbar-light bg-light" style="width:40rem;">
+        <div class="container-fluid">
+          <form class="d-flex" >
+        <span style="padding-top: 8px;"><b>Search&nbsp;Here:</b></span>&nbsp;&nbsp;
+            <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" >
+            <button class="btn btn-outline-success" type="submit" style="background-color: #1e88e5; border:none;color:#fff; padding:0px 20px 0px 20px">Search</button>
+          </form>
+        </div>
+      </nav>
+    
+  </div>
+  <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+  
+      <ng-container matColumnDef="id">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"> <b>S.No </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.id}} </td>
+      </ng-container>
+      
+      <ng-container matColumnDef="name">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:5rem;"><b> Purchaser </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.name}} </td>
+      </ng-container>
+    
+      
+      <ng-container matColumnDef="Amount">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px;width:5rem;"><b>Amount </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Amount}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="Invoice">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:5rem;"><b>Invoice </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Invoice}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="Date">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:3rem;"><b>Date</b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Date}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="image">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px;width:4rem;"><b>State </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.image}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="Code">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"><b>Pin Code</b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Code}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="ref">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"><b>Ref No </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.ref}} </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="status">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px;"><b>Delivery status </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.status}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Delivery">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:7rem;"><b>Delivery </b></th>
+        <td mat-cell *matCellDef="let element"> <button mat-raised-button color="primary"  style="margin-left: 8px">{{element.Delivery}}</button>  </td>
+      </ng-container>
+    
+      <ng-container matColumnDef="Address">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:5rem;"><b>Address Manage</b></th>
+        <td mat-cell *matCellDef="let element"> <a href="">{{element.Address}} </a></td>
+      </ng-container>
+      <ng-container matColumnDef="view">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"><b>view </b></th>
+        <td mat-cell *matCellDef="let element"><a href="" >{{element.view}}</a> </td>
+      </ng-container>
+      <ng-container matColumnDef="Login">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"><b>Login status </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Login}} </td>
+      </ng-container>
+      <ng-container matColumnDef="Order">
+        <th mat-header-cell *matHeaderCellDef style="font-size: 13px; width:4rem;"><b>Order Id </b></th>
+        <td mat-cell *matCellDef="let element"> {{element.Order}} </td>
+      </ng-container>   
+        <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+        <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        
+      </table>
+      
+      <mat-paginator [length]="100"
+              [pageSize]="10"
+              [pageSizeOptions]="[5, 10, 25, 100]">
+              <button>ioshs</button>
+</mat-paginator>

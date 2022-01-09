@@ -1,0 +1,29 @@
+<div fxLayout="row" fxLayoutWrap="wrap">
+    <div fxFlex.gt-sm="100%" fxFlex="100">
+       
+        <mat-card class="card">
+
+            <mat-toolbar>
+              <span>Add Category</span>
+            </mat-toolbar>
+             <form class="example-form">
+               
+               <mat-card-content>
+                 <mat-form-field class="example-full-width">
+                   <input matInput placeholder="Enter Category Name">
+                 </mat-form-field>
+                 <!-- <mat-form-field class="example-full-width">
+                   <input matInput  placeholder="Password">
+                 </mat-form-field> -->
+               
+               </mat-card-content>
+              <div class="text-center">
+               <button mat-raised-button color="primary" [routerLink]="'/category'"  class="btn-success ">Save</button>
+              </div>
+              <br>
+             </form>
+           
+           </mat-card>  
+
+    </div>    
+</div>    

@@ -1,0 +1,16 @@
+.viewprofie {
+    display: flex;
+}
+img.profile-pic {
+    width: 55%;
+    margin: 46px;
+}
+.content {
+    width: 100%;
+}
+.card-title.ng-star-inserted {
+    color: black;
+    font-size: 22px;
+    font-family: auto;
+    padding-left: 14px;
+}

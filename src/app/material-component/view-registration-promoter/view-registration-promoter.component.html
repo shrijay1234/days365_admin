@@ -1,0 +1,96 @@
+
+<div class="container">
+
+	<div class="row">
+<div class="col-8" style="margin:auto ; width:600px; height: auto;" >
+		<form [formGroup]="promoterRegisterForm" (ngSubmit)="onSubmit()">
+			<div class="form-group">
+				<span>
+			
+				<input class="form-control" name="Name" formControlName="Name" type="text"  placeholder="Full Name*"/>
+				</span>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.Name">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('Name').hasError(error.type) && (promoterRegisterForm.get('Name').dirty || promoterRegisterForm.get('Name').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			
+
+			<div class="form-group">
+				
+				<input class="form-control" name="Email" formControlName="Email" type="text"  placeholder="Email Id*"/>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.Email">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('Email').hasError(error.type) && 
+    (promoterRegisterForm.get('Email').dirty || promoterRegisterForm.get('Email').touched)" style="font-size: 10px; color:red">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group">
+				
+				<input class="form-control" name="userName" formControlName="userName" type="text" placeholder="User Name"/>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.userName">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('userName').hasError(error.type) && (promoterRegisterForm.get('userName').dirty || promoterRegisterForm.get('userName').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div> 
+			<div class="form-group">
+				
+				<input class="form-control" name="mobileNumber" formControlName="mobileNumber" type="number" placeholder="Contact No."/>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.mobileNumber">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('mobileNumber').hasError(error.type) && (promoterRegisterForm.get('mobileNumber').dirty || promoterRegisterForm.get('mobileNumber').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div> 
+			<div class="form-group">
+		
+				<input class="form-control" name="Address" formControlName="Address" type="text" placeholder="Address"/>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.Address">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('Address').hasError(error.type) && (promoterRegisterForm.get('Address').dirty || promoterRegisterForm.get('Address').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div> 
+			<div class="form-group">
+		
+				<input class="form-control" name="Password" formControlName="Password" type="password" placeholder="Password*" />
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.Password">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('Password').hasError(error.type) && (promoterRegisterForm.get('Password').dirty || promoterRegisterForm.get('Password').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+
+			<div class="form-group">
+				<input class="form-control" name="confirmpassword" formControlName="confirmpassword" type="password" placeholder="Confirm Password*"/>
+			</div>
+			<div class="error-messages">
+				<ng-container *ngFor="let error of error_messages.confirmpassword">
+					<div class="error-message" *ngIf="promoterRegisterForm.get('confirmpassword').hasError(error.type) && (promoterRegisterForm.get('confirmpassword').dirty || promoterRegisterForm.get('confirmpassword').touched)">
+						{{ error.message }}
+					</div>
+				</ng-container>
+			</div>
+      
+			<button type="submit" class="form-control btn btn-primary" [disabled]="!promoterRegisterForm.valid">Signup</button>
+		</form>
+	</div>
+	</div>
+	</div>
